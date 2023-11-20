@@ -1,6 +1,7 @@
 package com.example.exercise_10
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -41,7 +42,19 @@ class SettingsItemRecyclerAdapter(): ListAdapter<SettingsDataForRecycler.Item, S
 
     inner class RecyclerViewHolder(private val binding: SettingsItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind() {
+
             val item = currentList[adapterPosition]
+
+            if(item.name == "Dark Mode"){
+                binding.imgSettingsItemIcon.setImageResource(item.icon)
+                binding.tvSettingsItemTitle.text = item.name
+                binding.imgSettingsArrowIcon.visibility = View.GONE
+                binding.switcher.visibility = View.VISIBLE
+            } else if(item.name == "Language"){
+                binding.imgSettingsItemIcon.setImageResource(item.icon)
+                binding.tvSettingsItemTitle.text = item.name
+                binding.tvEnglish.visibility = View.VISIBLE
+            }
             with(binding){
                 imgSettingsItemIcon.setImageResource(item.icon)
                 tvSettingsItemTitle.text = item.name
