@@ -54,7 +54,11 @@ class SettingsItemRecyclerAdapter(): ListAdapter<SettingsDataForRecycler.Item, S
                 binding.imgSettingsItemIcon.setImageResource(item.icon)
                 binding.tvSettingsItemTitle.text = item.name
                 binding.tvEnglish.visibility = View.VISIBLE
-            }
+            }else if(item.name == "Logout") {
+                binding.imgSettingsItemIcon.setImageResource(item.icon)
+                binding.tvSettingsItemTitle.text = item.name
+                binding.imgSettingsArrowIcon.visibility = View.GONE
+            }else
             with(binding){
                 imgSettingsItemIcon.setImageResource(item.icon)
                 tvSettingsItemTitle.text = item.name
